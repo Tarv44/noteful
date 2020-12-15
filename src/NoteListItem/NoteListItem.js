@@ -3,6 +3,8 @@ import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import NoteContext from '../NoteContext';
 import 'moment-timezone';
+import PropTypes from 'prop-types';
+import './NoteListItem.css';
 
 class NoteListItem extends Component {
     static contextType = NoteContext;
@@ -37,6 +39,7 @@ class NoteListItem extends Component {
                         <Link to={`/note/${note.id}`}><h3>{note.name}</h3></Link>
                         <p>Last modified on <Moment format="YYYY/MM/DD">{note.modified}</Moment></p>
                         <button
+                            className='deleteButton'
                             onClick={() => {
                                 this.deleteNoteRequest(note.id)
                             }}>
@@ -49,6 +52,14 @@ class NoteListItem extends Component {
             
         )
     }
+}
+
+NoteListItem.propTypes = {
+    note: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        modified: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired
+    })
 }
 
 export default NoteListItem;

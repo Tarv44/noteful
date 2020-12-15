@@ -1,9 +1,16 @@
 import React, {Component} from 'react';
 import NoteListItem from '../NoteListItem/NoteListItem';
 import NoteContext from '../NoteContext';
+import { Link } from 'react-router-dom';
+import './NoteList.css'
 
 class NoteList extends Component {
     static contextType = NoteContext;
+
+    handleDeleteNote = noteId => {
+        this.props.history.push(`/`)
+    }
+
     render() {
         const {folderId} = this.props.match.params
         const { notes } = this.context
@@ -13,7 +20,7 @@ class NoteList extends Component {
         const noteLis = filteredNotes.map(note => {
             return (
                 <li key={note.id}>
-                    <NoteListItem key={note.id} note={note} />
+                    <NoteListItem key={note.id} note={note} onDeleteNote={this.handleDeleteNote} />
                 </li>
             )
         })
@@ -23,7 +30,9 @@ class NoteList extends Component {
                 <ul>
                     {noteLis}
                 </ul>
-                <button>Add note</button>
+                <Link to={'/addNote'} className="addNoteButton">
+                    Add note
+                </Link>
             </div>
         )
     }

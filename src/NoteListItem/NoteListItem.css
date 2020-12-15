@@ -1,0 +1,9 @@
+.note {
+    border: solid black 3px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.deleteButton {
+    padding: 5px;
+}

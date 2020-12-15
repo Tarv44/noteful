@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import NoteContext from '../NoteContext'
 import './FolderList.css'
 
@@ -14,13 +14,16 @@ class FolderList extends Component {
             )
         })
         return (
-            <div>
+            <>
                 <h2>Folders</h2>
                 <ul>
                     {folders}
                 </ul>
-                <button>Add folder</button>              
-            </div>
+                <Link to={'/addFolder'} className="addFolderButton">
+                    Add folder
+                </Link>
+                             
+            </>
         )
     }
 }

@@ -1,3 +1,26 @@
 .active {
-    color: red;
+    background-color: blue;
+    color: white;
+}
+
+nav a {
+    width: 100%;
+    display: block;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+nav li {
+    border: solid black 3px;
+    text-align: center;
+}
+
+nav ul {
+    width: 100%;
+    padding: 20px;
+}
+.addFolderButton {
+    padding: 10px;
+    text-align: center;
+    border: solid black 3px;
 }
