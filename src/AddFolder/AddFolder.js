@@ -60,6 +60,7 @@ export default class AddFolder extends Component {
         if(this.state.name.value.length === 0) {
             return 'Name is required'
         }
+        return ''
     }
 
     handleCancel() {

@@ -28,10 +28,11 @@ export default class AddNote extends Component {
     handleAddNoteSubmit(event) {
         event.preventDefault();
         const folderId = this.context.folders.find(folder => folder.name === this.state.folder.value).id
+        const modifiedDate = new Date()
         const note = {
             id: uniqueId(),
             name: this.state.name.value,
-            modified: new Date(),
+            modified: modifiedDate.toISOString(),
             folderId,
             content: this.state.content.value,
         }
@@ -104,6 +105,7 @@ export default class AddNote extends Component {
         if (name.length === 0) {
           return "Name is required";
         }
+        return ''
     }
 
     handleCancel() {
