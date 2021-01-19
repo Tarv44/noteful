@@ -23,7 +23,7 @@ class App extends Component {
   
 
   componentDidMount() {
-    fetch('http://localhost:9090/folders')
+    fetch('http://localhost:9090/api/folders')
       .then(res => {
         if (!res.ok){
           return res.json().then(error => {throw error})
@@ -37,7 +37,7 @@ class App extends Component {
       })
       .catch(err => console.log('Error on folder request.'))
     
-    fetch('http://localhost:9090/notes')
+    fetch('http://localhost:9090/api/notes')
       .then(res => {
         if (!res.ok){
           return res.json().then(error => {throw error})

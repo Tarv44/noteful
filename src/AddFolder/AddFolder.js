@@ -9,7 +9,7 @@ export default class AddFolder extends Component {
     constructor(props) {
         super(props)
         this.state ={
-            name: {
+            title: {
                 value: '',
                 touched: false
             }
@@ -20,7 +20,7 @@ export default class AddFolder extends Component {
         event.preventDefault();
         const folder = {
             id: uniqueId(),
-            name: this.state.name.value
+            title: this.state.title.value
         }
         const options = {
             method: 'POST',
@@ -30,7 +30,7 @@ export default class AddFolder extends Component {
             }
         }
 
-        fetch('http://localhost:9090/folders', options)
+        fetch('http://localhost:9090/api/folders', options)
             .then(res => {
                 if(!res.ok) {
                     return res.json().then(error => {
@@ -41,7 +41,7 @@ export default class AddFolder extends Component {
             })
             .then(res => {
                 this.setState({
-                    name: {
+                    title: {
                         value: '',
                         touched: false
                     }
@@ -52,13 +52,13 @@ export default class AddFolder extends Component {
             .catch(err => console.log(err))
     }
 
-    updateName(name) {
-        this.setState({ name: {value: name, touched: true} })
+    updateTitle(title) {
+        this.setState({ title: {value: title, touched: true} })
     }
 
-    validateName() {
-        if(this.state.name.value.length === 0) {
-            return 'Name is required'
+    validateTitle() {
+        if(this.state.title.value.length === 0) {
+            return 'Title is required'
         }
         return ''
     }
@@ -69,16 +69,16 @@ export default class AddFolder extends Component {
 
     render() {
         return (
-            <form className='addFolder' onSubmit={event => this.handleAddFolderSubmit(event)}>
+            <form classTitle='addFolder' onSubmit={event => this.handleAddFolderSubmit(event)}>
                 <h2>Add Folder</h2>
-                <label htmlFor='folderName'>New Folder Name:</label>
+                <label htmlFor='folderTitle'>New Folder Title:</label>
                 <input 
-                    name='folderName' 
-                    id='folderName' 
-                    className='form__folderName'
-                    onChange={e => this.updateName(e.target.value)}/>
-                <ValidationError message={this.validateName()}/>
-                <button type='submit' disabled={this.validateName()}>Add Folder</button>
+                    title='folderTitle' 
+                    id='folderTitle' 
+                    classTitle='form__folderTitle'
+                    onChange={e => this.updateTitle(e.target.value)}/>
+                <ValidationError message={this.validateTitle()}/>
+                <button type='submit' disabled={this.validateTitle()}>Add Folder</button>
                 <button onClick={() => this.handleCancel}>Cancel</button>
 
             </form>

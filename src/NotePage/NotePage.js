@@ -10,7 +10,7 @@ class NotePage extends Component {
     }
 
     render() {
-        const note = this.context.notes.find(note => note.id === this.props.match.params.noteId)
+        const note = this.context.notes.find(note => note.id === Number(this.props.match.params.noteId))
         return (
             <div className='notePage'>
                 <NoteListItem onDeleteNote={this.handleDeleteNote} note={note}/>
