@@ -10,7 +10,7 @@ class NoteListItem extends Component {
     static contextType = NoteContext;
 
     deleteNoteRequest(noteId) {
-        fetch(`http://localhost:9090/api/notes/${noteId}`, {
+        fetch(`https://shielded-fortress-55094.herokuapp.com/api/notes/${noteId}`, {
             method: 'DELETE',
             
         })

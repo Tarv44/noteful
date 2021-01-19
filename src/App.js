@@ -23,7 +23,7 @@ class App extends Component {
   
 
   componentDidMount() {
-    fetch('http://localhost:9090/api/folders')
+    fetch('https://shielded-fortress-55094.herokuapp.com/api/folders/')
       .then(res => {
         if (!res.ok){
           return res.json().then(error => {throw error})
@@ -37,7 +37,7 @@ class App extends Component {
       })
       .catch(err => console.log('Error on folder request.'))
     
-    fetch('http://localhost:9090/api/notes')
+    fetch('https://shielded-fortress-55094.herokuapp.com/api/notes/')
       .then(res => {
         if (!res.ok){
           return res.json().then(error => {throw error})

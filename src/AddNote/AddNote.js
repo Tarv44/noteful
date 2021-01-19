@@ -41,7 +41,7 @@ export default class AddNote extends Component {
                 "Content-Type": "application/json"
             }
         }
-        fetch('http://localhost:9090/api/notes', options)
+        fetch('https://shielded-fortress-55094.herokuapp.com/api/notes', options)
             .then(res => {
                 if(!res.ok) {
                     return res.json().then(err => {

@@ -30,7 +30,7 @@ export default class AddFolder extends Component {
             }
         }
 
-        fetch('http://localhost:9090/api/folders', options)
+        fetch('https://shielded-fortress-55094.herokuapp.com/api/folders', options)
             .then(res => {
                 if(!res.ok) {
                     return res.json().then(error => {
