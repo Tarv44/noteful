@@ -9,7 +9,7 @@ export default class AddFolder extends Component {
     constructor(props) {
         super(props)
         this.state ={
-            title: {
+            name: {
                 value: '',
                 touched: false
             }
@@ -20,7 +20,7 @@ export default class AddFolder extends Component {
         event.preventDefault();
         const folder = {
             id: uniqueId(),
-            title: this.state.title.value
+            name: this.state.name.value
         }
         const options = {
             method: 'POST',
@@ -30,7 +30,11 @@ export default class AddFolder extends Component {
             }
         }
 
+<<<<<<< HEAD
         fetch('https://shielded-fortress-55094.herokuapp.com/api/folders', options)
+=======
+        fetch('http://localhost:9090/folders', options)
+>>>>>>> parent of 2857eca (Refactored for noteful-api)
             .then(res => {
                 if(!res.ok) {
                     return res.json().then(error => {
@@ -41,7 +45,7 @@ export default class AddFolder extends Component {
             })
             .then(res => {
                 this.setState({
-                    title: {
+                    name: {
                         value: '',
                         touched: false
                     }
@@ -52,13 +56,13 @@ export default class AddFolder extends Component {
             .catch(err => console.log(err))
     }
 
-    updateTitle(title) {
-        this.setState({ title: {value: title, touched: true} })
+    updateName(name) {
+        this.setState({ name: {value: name, touched: true} })
     }
 
-    validateTitle() {
-        if(this.state.title.value.length === 0) {
-            return 'Title is required'
+    validateName() {
+        if(this.state.name.value.length === 0) {
+            return 'Name is required'
         }
         return ''
     }
@@ -69,16 +73,16 @@ export default class AddFolder extends Component {
 
     render() {
         return (
-            <form classTitle='addFolder' onSubmit={event => this.handleAddFolderSubmit(event)}>
+            <form className='addFolder' onSubmit={event => this.handleAddFolderSubmit(event)}>
                 <h2>Add Folder</h2>
-                <label htmlFor='folderTitle'>New Folder Title:</label>
+                <label htmlFor='folderName'>New Folder Name:</label>
                 <input 
-                    title='folderTitle' 
-                    id='folderTitle' 
-                    classTitle='form__folderTitle'
-                    onChange={e => this.updateTitle(e.target.value)}/>
-                <ValidationError message={this.validateTitle()}/>
-                <button type='submit' disabled={this.validateTitle()}>Add Folder</button>
+                    name='folderName' 
+                    id='folderName' 
+                    className='form__folderName'
+                    onChange={e => this.updateName(e.target.value)}/>
+                <ValidationError message={this.validateName()}/>
+                <button type='submit' disabled={this.validateName()}>Add Folder</button>
                 <button onClick={() => this.handleCancel}>Cancel</button>
 
             </form>

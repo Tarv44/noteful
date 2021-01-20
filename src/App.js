@@ -23,7 +23,11 @@ class App extends Component {
   
 
   componentDidMount() {
+<<<<<<< HEAD
     fetch('https://shielded-fortress-55094.herokuapp.com/api/folders/')
+=======
+    fetch('http://localhost:9090/folders')
+>>>>>>> parent of 2857eca (Refactored for noteful-api)
       .then(res => {
         if (!res.ok){
           return res.json().then(error => {throw error})
@@ -37,7 +41,11 @@ class App extends Component {
       })
       .catch(err => console.log('Error on folder request.'))
     
+<<<<<<< HEAD
     fetch('https://shielded-fortress-55094.herokuapp.com/api/notes/')
+=======
+    fetch('http://localhost:9090/notes')
+>>>>>>> parent of 2857eca (Refactored for noteful-api)
       .then(res => {
         if (!res.ok){
           return res.json().then(error => {throw error})

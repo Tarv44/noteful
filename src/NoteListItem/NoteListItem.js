@@ -10,7 +10,11 @@ class NoteListItem extends Component {
     static contextType = NoteContext;
 
     deleteNoteRequest(noteId) {
+<<<<<<< HEAD
         fetch(`https://shielded-fortress-55094.herokuapp.com/api/notes/${noteId}`, {
+=======
+        fetch(`http://localhost:9090/notes/${noteId}`, {
+>>>>>>> parent of 2857eca (Refactored for noteful-api)
             method: 'DELETE',
             
         })
@@ -20,7 +24,7 @@ class NoteListItem extends Component {
                         throw error
                     })
                 }
-                return res
+                return res.json()
             })
             .then(res => {
                 
@@ -36,8 +40,8 @@ class NoteListItem extends Component {
             <NoteContext.Consumer>
                 {(context) => (
                     <div className="note">
-                        <Link to={`/note/${note.id}`}><h3>{note.title}</h3></Link>
-                        <p>Last modified on <Moment format="YYYY/MM/DD">{note.date_created}</Moment></p>
+                        <Link to={`/note/${note.id}`}><h3>{note.name}</h3></Link>
+                        <p>Last modified on <Moment format="YYYY/MM/DD">{note.modified}</Moment></p>
                         <button
                             className='deleteButton'
                             onClick={() => {
@@ -56,8 +60,8 @@ class NoteListItem extends Component {
 
 NoteListItem.propTypes = {
     note: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        date_created: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        modified: PropTypes.string.isRequired,
         id: PropTypes.string.isRequired
     })
 }
