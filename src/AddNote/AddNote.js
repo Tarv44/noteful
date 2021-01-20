@@ -43,11 +43,7 @@ export default class AddNote extends Component {
                 "Content-Type": "application/json"
             }
         }
-<<<<<<< HEAD
         fetch('https://shielded-fortress-55094.herokuapp.com/api/notes', options)
-=======
-        fetch('http://localhost:9090/notes', options)
->>>>>>> parent of 2857eca (Refactored for noteful-api)
             .then(res => {
                 if(!res.ok) {
                     return res.json().then(err => {

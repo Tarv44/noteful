@@ -30,11 +30,7 @@ export default class AddFolder extends Component {
             }
         }
 
-<<<<<<< HEAD
         fetch('https://shielded-fortress-55094.herokuapp.com/api/folders', options)
-=======
-        fetch('http://localhost:9090/folders', options)
->>>>>>> parent of 2857eca (Refactored for noteful-api)
             .then(res => {
                 if(!res.ok) {
                     return res.json().then(error => {

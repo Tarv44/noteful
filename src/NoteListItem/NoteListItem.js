@@ -10,11 +10,7 @@ class NoteListItem extends Component {
     static contextType = NoteContext;
 
     deleteNoteRequest(noteId) {
-<<<<<<< HEAD
         fetch(`https://shielded-fortress-55094.herokuapp.com/api/notes/${noteId}`, {
-=======
-        fetch(`http://localhost:9090/notes/${noteId}`, {
->>>>>>> parent of 2857eca (Refactored for noteful-api)
             method: 'DELETE',
             
         })
