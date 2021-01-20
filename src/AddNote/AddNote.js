@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import NoteContext from '../NoteContext';
-import { v4 as uniqueId } from 'uuid';
 import ValidationError from '../ValidationError';
 import './AddNote.css'
 
