@@ -20,7 +20,7 @@ class NoteListItem extends Component {
                         throw error
                     })
                 }
-                return res.json()
+                return res
             })
             .then(res => {
                 
@@ -36,8 +36,8 @@ class NoteListItem extends Component {
             <NoteContext.Consumer>
                 {(context) => (
                     <div className="note">
-                        <Link to={`/note/${note.id}`}><h3>{note.name}</h3></Link>
-                        <p>Last modified on <Moment format="YYYY/MM/DD">{note.modified}</Moment></p>
+                        <Link to={`/note/${note.id}`}><h3>{note.title}</h3></Link>
+                        <p>Last modified on <Moment format="YYYY/MM/DD">{note.date_created}</Moment></p>
                         <button
                             className='deleteButton'
                             onClick={() => {
@@ -56,7 +56,7 @@ class NoteListItem extends Component {
 
 NoteListItem.propTypes = {
     note: PropTypes.shape({
-        name: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
         modified: PropTypes.string.isRequired,
         id: PropTypes.string.isRequired
     })

@@ -16,7 +16,7 @@ class NoteList extends Component {
         const { notes } = this.context
         const filteredNotes = (!folderId)
             ? notes
-            : notes.filter(note => note.folderId === folderId)
+            : notes.filter(note => note.folder === Number(folderId))
         const noteLis = filteredNotes.map(note => {
             return (
                 <li key={note.id}>
